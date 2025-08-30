@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LontarMorph 3.0 - Full App</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Top Bar -->
+    <header>
+      <span id="clock">00:00</span>
+      <button id="themeToggle"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+      <button data-section="tiket"><i class="fas fa-ticket-alt"></i><span>Tiket</span></button>
+      <button data-section="health"><i class="fas fa-heartbeat"></i><span>Health</span></button>
+      <button data-section="safety"><i class="fas fa-shield-alt"></i><span>Safety</span></button>
+      <button data-section="info"><i class="fas fa-info-circle"></i><span>Info</span></button>
+      <button data-section="training"><i class="fas fa-graduation-cap"></i><span>Training</span></button>
+    </nav>
+
+    <!-- Sections -->
+    <main>
+      <!-- Tiket -->
+      <section id="tiket" class="page">
+        <h2>Pesan Tiket</h2>
+        <form id="formTiket">
+          <input type="text" id="nama" placeholder="Nama lengkap" required>
+          <input type="text" id="tujuan" placeholder="Tujuan" required>
+          <input type="date" id="tanggal" required>
+          <button type="submit">Pesan & Simpan</button>
+        </form>
+        <div id="listTiket"></div>
+      </section>
+
+      <!-- Health -->
+      <section id="health" class="page hidden">
+        <h2>Health Check</h2>
+        <button onclick="startHealth()">Mulai Scan</button>
+        <div id="hasilHealth">
+          <p>Suhu: <span id="suhu">--</span> °C</p>
+          <p>Detak: <span id="detak">--</span> bpm</p>
+        </div>
+      </section>
+
+      <!-- Safety -->
+      <section id="safety" class="page hidden">
+        <h2>Security Scan</h2>
+        <video id="video" autoplay muted></video>
+        <canvas id="canvas" hidden></canvas>
+        <p id="qrResult">Arahkan kamera ke QR Code</p>
+      </section>
+
+      <!-- Info -->
+      <section id="info" class="page hidden">
+        <h2>Jadwal Keberangkatan</h2>
+        <ul id="jadwalList"></ul>
+      </section>
+
+      <!-- Training -->
+      <section id="training" class="page hidden">
+        <h2>Mobile Training</h2>
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+      </section>
+    </main>
+
+    <!-- Voice Button -->
+    <button id="voiceBtn"><i class="fas fa-microphone"></i></button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
